@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Template Showcase</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF7B25;
+            --secondary-color: #E64A19;
+            --accent-color: #f8f9fc;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #5a5c69;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            padding: 15px 0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            margin-left: 10px;
+            margin-right: 10px;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .search-icon {
+            font-size: 18px;
+            color: var(--text-color);
+            transition: all 0.3s;
+        }
+        
+        .search-icon:hover {
+            color: var(--primary-color);
+            transform: scale(1.1);
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+        
+        .dropdown-item {
+            padding: 8px 20px;
+            transition: all 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: rgba(255, 123, 37, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .dropdown-divider {
+            border-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 80px 0 60px;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            background-color: rgba(255,255,255,0.2);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .breadcrumb-item a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .template-card {
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+        }
+        
+        .template-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.2);
+        }
+        
+        .template-img-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .template-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .template-card:hover img {
+            transform: scale(1.05);
+        }
+        
+        .template-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .template-badge.free {
+            background-color: #FFA726;
+        }
+        
+        .template-badge.new {
+            background-color: #FF7043;
+        }
+        
+        .template-badge.popular {
+            background-color: #FB8C00;
+        }
+        
+        .template-badge.bestseller {
+            background-color: #E65100;
+        }
+        
+        .template-card-body {
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .template-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-color);
+        }
+        
+        .template-category {
+            font-size: 14px;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .template-price {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 18px;
+        }
+        
+        .btn-view {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-view:hover {
+            background-color: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .category-filter {
+            margin-bottom: 30px;
+        }
+        
+        .category-btn {
+            border: 1px solid #ddd;
+            background: white;
+            color: var(--text-color);
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .testimonials {
+            background-color: var(--accent-color);
+            padding: 80px 0;
+            margin: 60px 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            margin: 15px;
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 60px;
+            color: rgba(255, 123, 37, 0.1);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 0;
+            color: var(--dark-color);
+        }
+        
+        .author-title {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .newsletter {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .newsletter .section-title::after {
+            background-color: white;
+        }
+        
+        .newsletter-input {
+            padding: 15px 20px;
+            border-radius: 4px;
+            border: none;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .btn-newsletter {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn-newsletter:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-logo span {
+            color: var(--primary-color);
+        }
+        
+        .footer-about {
+            margin-bottom: 30px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h5 {
+            font-size: 18px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 14px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-description {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .stat-number {
+                font-size: 36px;
+            }
+            
+            .stat-label {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <a class="logo" href="#"><i class="fas fa-cubes me-2"></i>Template<span>Hub</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="templatesDropdown" role="button" data-bs-toggle="dropdown">
+                            Templates
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Bootstrap Templates</a></li>
+                            <li><a class="dropdown-item" href="#">HTML Templates</a></li>
+                            <li><a class="dropdown-item" href="#">WordPress Themes</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">View All Templates</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="freeThemesDropdown" role="button" data-bs-toggle="dropdown">
+                            Free Themes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Free Bootstrap</a></li>
+                            <li><a class="dropdown-item" href="#">Free HTML</a></li>
+                            <li><a class="dropdown-item" href="#">Free WordPress</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">All Free Themes</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Business</a></li>
+                            <li><a class="dropdown-item" href="#">Portfolio</a></li>
+                            <li><a class="dropdown-item" href="#">eCommerce</a></li>
+                            <li><a class="dropdown-item" href="#">Blog</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">All Categories</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown">
+                            Account
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">My Account</a></li>
+                            <li><a class="dropdown-item" href="#">My Downloads</a></li>
+                            <li><a class="dropdown-item" href="#">Purchase History</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <a class="nav-link search-icon" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title">Premium Bootstrap Templates for Your Next Project</h1>
+                    <p class="hero-description">
+                        Discover our collection of professionally designed, responsive Bootstrap templates. 
+                        Perfect for businesses, portfolios, eCommerce, and more. Save hundreds of hours 
+                        of development time with our ready-to-use solutions.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#templates" class="btn btn-light btn-lg px-4">Browse Templates</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hero Image" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">1,250+</div>
+                        <div class="stat-label">Templates</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">45+</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">50,000+</div>
+                        <div class="stat-label">Customers</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">Featured Templates</h2>
+                <p class="lead">Hand-picked selection of our best templates</p>
+            </div>
+            
+            <div class="category-filter text-center mb-5">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Business</button>
+                <button class="category-btn">Portfolio</button>
+                <button class="category-btn">eCommerce</button>
+                <button class="category-btn">Blog</button>
+                <button class="category-btn">Landing Page</button>
+                <button class="category-btn">One Page</button>
+            </div>
+            
+            <div class="row">
+                <!-- Template 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Business Pro Template">
+                            <span class="template-badge popular">Popular</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">Business Pro</h3>
+                            <p class="template-category">Business • Corporate • Agency</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$49</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Portfolio X Template">
+                            <span class="template-badge new">New</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">Portfolio X</h3>
+                            <p class="template-category">Portfolio • Creative • Personal</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$39</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="ShopEase Template">
+                            <span class="template-badge bestseller">Bestseller</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">ShopEase</h3>
+                            <p class="template-category">eCommerce • Retail • Shop</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$59</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 4 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="BlogGenius Template">
+                            <span class="template-badge">Premium</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">BlogGenius</h3>
+                            <p class="template-category">Blog • Magazine • News</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$29</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 5 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="LandingPro Template">
+                            <span class="template-badge free">Free</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">LandingPro</h3>
+                            <p class="template-category">Landing Page • Marketing • Lead</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$0</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1481487196290-c152efe083f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1462&q=80" alt="OnePageX Template">
+                            <span class="template-badge">Premium</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">OnePageX</h3>
+                            <p class="template-category">One Page • Simple • Modern</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$35</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 7 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="RestoPrime Template">
+                            <span class="template-badge new">New</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">RestoPrime</h3>
+                            <p class="template-category">Restaurant • Food • Delivery</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$45</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 8 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="HealthPlus Template">
+                            <span class="template-badge">Featured</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">HealthPlus</h3>
+                            <p class="template-category">Medical • Health • Clinic</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$49</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 9 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="template-card fade-in">
+                        <div class="template-img-container">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="EduMaster Template">
+                            <span class="template-badge bestseller">Bestseller</span>
+                        </div>
+                        <div class="template-card-body">
+                            <h3 class="template-name">EduMaster</h3>
+                            <p class="template-category">Education • School • Course</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="template-price">$55</span>
+                                <a href="#" class="btn-view">View Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary btn-lg px-5">View All Templates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">Why Choose Our Templates</h2>
+                <p class="lead">Professional designs with powerful features</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
+                                <i class="fas fa-mobile-alt fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Fully Responsive</h4>
+                            <p class="text-muted">All templates are fully responsive and look great on any device, from mobile phones to desktop computers.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
+                                <i class="fas fa-paint-brush fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Customizable</h4>
+                            <p class="text-muted">Easily customize colors, fonts, and layouts to match your brand identity with our well-organized code.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
+                                <i class="fas fa-file-code fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Clean Code</h4>
+                            <p class="text-muted">Professionally coded with clean, commented HTML, CSS, and JavaScript that's easy to understand and modify.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
+                                <i class="fas fa-rocket fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Fast Loading</h4>
+                            <p class="text-muted">Optimized for performance with fast loading times, ensuring better user experience and SEO rankings.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
+                                <i class="fas fa-search fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">SEO Friendly</h4>
+                            <p class="text-muted">Built with SEO best practices in mind to help your website rank higher in search engine results.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-3 d-inline-block mb-3">
+                                <i class="fas fa-headset fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Premium Support</h4>
+                            <p class="text-muted">Dedicated support team ready to help you with any questions or issues you might encounter.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">What Our Customers Say</h2>
+                <p class="lead">Trusted by thousands of developers and designers</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            These templates saved me countless hours of development time. The code is clean and well-documented, making customization a breeze.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                            <div>
+                                <h5 class="author-name">Sarah Johnson</h5>
+                                <p class="author-title">Web Developer at TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            I've used many template marketplaces, but TemplateHub stands out for its quality and attention to detail. Highly recommended!
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                            <div>
+                                <h5 class="author-name">Michael Chen</h5>
+                                <p class="author-title">Freelance Designer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            The support team is amazing! They helped me customize a template for my client's specific needs within 24 hours.
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Emma Rodriguez">
+                            <div>
+                                <h5 class="author-name">Emma Rodriguez</h5>
+                                <p class="author-title">Agency Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title">Stay Updated</h2>
+                    <p class="mb-5">Subscribe to our newsletter to receive updates on new templates, special offers, and web design tips.</p>
+                    
+                    <form class="row g-3 justify-content-center">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control newsletter-input" placeholder="Your email address">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn-newsletter">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <div class="footer-logo">Template<span>Hub</span></div>
+                    <p class="footer-about">
+                        TemplateHub provides high-quality Bootstrap templates for businesses, creatives, and developers. 
+                        Our mission is to help you create beautiful websites faster.
+                    </p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 footer-links">
+                    <h5>Templates</h5>
+                    <ul>
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">eCommerce</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Landing Page</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 footer-links">
+                    <h5>Resources</h5>
+                    <ul>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Freebies</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 footer-links">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4 footer-links">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Submit a Ticket</a></li>
+                        <li><a href="#">System Status</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 TemplateHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script>
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            var backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Category filter functionality
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // Here you would add filtering logic
+            });
+        });
+        
+        // Animation on scroll
+        window.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Trigger initial animations
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
